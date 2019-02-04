@@ -1,15 +1,24 @@
-/* Constants(API, Key etc.) */
+/*
+    - Your API key should be in a JSON file(same directory with JS file);
+
+    File Name: apikey.json
+    Format: { "key" : "paste api key here" }
+
+    - You can get your key from here; https://translate.yandex.com/developers/keys
+*/
+
+//constants(api, key etc.)
 const api = "https://translate.yandex.net/api/v1.5/tr.json";
 const keyLocation = "apikey.json";
 let key = "";
 
-/* Elements(Inputs, Buttons etc.) */
+// dom elements
 let sourceText = document.getElementById("sourceText");
 let resultText = document.getElementById("resultText");
 let languages = document.getElementById("languages");
 let translateButton = document.getElementById("translateButton");
 
-/* EventListeners */
+// eventListeners
 languages.addEventListener("change", getTargetLanguage);
 translateButton.addEventListener("click", translate);
 document.addEventListener("DOMContentLoaded", function () {
@@ -19,13 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-/*
-    Your API key should be in a JSON file(same directory with JS file);
-
-    File Name: apikey.json
-    Format: { "key" : "paste api key here" }
-*/
-
+// for getting api key from json file
 function getApiKey(callback) {
     let xhr = new XMLHttpRequest();
     xhr.onload = function () {
@@ -37,10 +40,12 @@ function getApiKey(callback) {
     xhr.send();
 }
 
+// get target language from select box
 function getTargetLanguage() {
     return languages.value;
 }
 
+// for alert messages
 function showAlert(type, message) {
     const leftCard = document.querySelector(".left");
 
@@ -55,6 +60,7 @@ function showAlert(type, message) {
     }, 1500);
 }
 
+// translate text to target language from source language(auto detect by api)
 function translate() {
     const targetLanguage = getTargetLanguage();
 
