@@ -11,6 +11,6 @@ Basic JavaScript translate app with using Yandex.Translate API
   > apikey.json
 
   Format:
-  > { "key" : "paste api key here" }`
+  > { "key" : "paste api key here" }
 
 - You can get your key from here; https://translate.yandex.com/developers/keys
